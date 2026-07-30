@@ -3,28 +3,46 @@
     "target": "ES2022",
     "useDefineForClassFields": true,
     "module": "ESNext",
+
     "lib": [
       "ES2022",
       "DOM",
       "DOM.Iterable"
     ],
+
+    "types": [
+      "node"
+    ],
+
     "skipLibCheck": true,
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
     "noEmit": true
   },
+
   "include": [
-    "src",
+    "src/index.ts",
+    "src/components/**/*.ts",
+    "src/core/**/*.ts",
+    "src/loaders/**/*.ts",
+    "src/types/**/*.ts",    
+  ],
+
+  "exclude": [
+    "node_modules",
+    "dist",
     "vite.config.ts"
   ]
 }
