@@ -41,8 +41,7 @@ export class CadViewerElement extends HTMLElement {
     private readonly resetModelButton: HTMLButtonElement;
     private readonly removeButton: HTMLButtonElement;
     private readonly loader = new CadModelLoader();
-    private cadScene: CadScene | null = null;
-    private currentSource: string | null = null;
+    private cadScene: CadScene | null = null;    
     private currentLoadToken = 0;
     private isConnectedToDom = false;
     private isGridVisible = true;
@@ -203,9 +202,7 @@ export class CadViewerElement extends HTMLElement {
             throw new Error('A URL do modelo não pode estar vazia.');
         }
 
-        const loadToken = ++this.currentLoadToken;
-
-        this.currentSource = normalizedSource;
+        const loadToken = ++this.currentLoadToken;        
 
         this.setLoadingState(true);
         this.showStatus('Carregando modelo...');
@@ -259,9 +256,7 @@ export class CadViewerElement extends HTMLElement {
             throw new TypeError('É necessário informar um arquivo válido.');
         }
 
-        const loadToken = ++this.currentLoadToken;
-
-        this.currentSource = file.name;
+        const loadToken = ++this.currentLoadToken;        
 
         this.setLoadingState(true);
         this.showStatus('Lendo arquivo local...');
@@ -325,8 +320,7 @@ export class CadViewerElement extends HTMLElement {
     }
 
     public removeModel(): void {
-        this.currentLoadToken += 1;
-        this.currentSource = null;
+        this.currentLoadToken += 1;        
 
         this.disableTransformMode();
 

@@ -1,5 +1,7 @@
 import { resolve } from 'node:path';
+
 import { defineConfig } from 'vite';
+
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
@@ -7,28 +9,45 @@ export default defineConfig({
     dts({
       entryRoot: 'src',
       insertTypesEntry: true,
-      rollupTypes: true
+
+      include: [
+        'src/**/*.ts'
+      ],
+
+      exclude: [
+        'vite.config.ts',
+        'node_modules',
+        'dist'
+      ]
     })
   ],
 
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: resolve(
+        import.meta.dirname,
+        'src/index.ts'
+      ),
+
       name: 'CadViewer',
-      formats: ['es', 'umd'],
+
+      formats: [
+        'es',
+        'umd'
+      ],
 
       fileName: (format) => {
-        if (format === 'es') {
-          return 'cad-viewer.js';
-        }
-
-        return 'cad-viewer.umd.cjs';
+        return format === 'es'
+          ? 'cad-viewer.js'
+          : 'cad-viewer.umd.cjs';
       }
     },
 
-    sourcemap: true,
+    sourcemap: false,
+    emptyOutDir: true,
+    copyPublicDir: false,
 
-    rollupOptions: {
+    rolldownOptions: {
       output: {
         assetFileNames: 'cad-viewer.[ext]'
       }
