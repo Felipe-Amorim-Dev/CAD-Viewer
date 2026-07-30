@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CAD Viewer</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 32px;
+
+      background: #f8fafc;
+      color: #1f2937;
+
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(1200px, 100%);
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+    }
+
+    p {
+      margin: 0 0 24px;
+      color: #64748b;
+    }
+
+    cad-viewer {
+      width: 100%;
+      height: 700px;
+    }
+
+    #event-log {
+      margin-top: 20px;
+      padding: 16px;
+
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      background: #ffffff;
+
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>CAD Viewer</h1>
+
+    <p>
+      Visualizador local de arquivos GLB, GLTF,
+      STL, OBJ e PLY.
+    </p>
+
+    <cad-viewer id="viewer" show-grid="true" show-axes="false" auto-rotate="false" allow-file-selection="true"
+      background="#eef1f5">
+    </cad-viewer>
+
+    <div id="event-log">
+      Nenhum evento recebido.
+    </div>
+  </main>
+
+  <script type="module" src="/src/index.ts">
+  </script>
+
+  <script type="module">
+    const viewer =
+      document.querySelector('#viewer');
+
+    const eventLog =
+      document.querySelector('#event-log');
+
+    viewer.addEventListener(
+      'cad-load-start',
+      (event) => {
+        eventLog.textContent =
+          `Iniciando: ${event.detail.source}`;
+      }
+    );
+
+    viewer.addEventListener(
+      'cad-progress',
+      (event) => {
+        const percentage =
+          event.detail.percentage;
+
+        if (percentage !== null) {
+          eventLog.textContent =
+            `Progresso: ${percentage}%`;
+        }
+      }
+    );
+
+    viewer.addEventListener(
+      'cad-loaded',
+      (event) => {
+        eventLog.textContent =
+          `Modelo carregado:
+            Arquivo: ${event.detail.source}
+            Formato: ${event.detail.format}`;
+      }
+    );
+
+    viewer.addEventListener(
+      'cad-error',
+      (event) => {
+        eventLog.textContent =
+          `Erro: ${event.detail.message}`;
+      }
+    );
+
+    viewer.addEventListener(
+      'cad-model-removed',
+      () => {
+        eventLog.textContent =
+          'Modelo removido.';
+      }
+    );
+  </script>
+</body>
+
+</html>

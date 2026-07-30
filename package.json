@@ -1,0 +1,68 @@
+{
+  "name": "@felipe-amorim-dev/cad-viewer",
+  "version": "0.1.0",
+  "description": "Plugin web para visualização e manipulação de modelos CAD 3D",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Felipe Figueiredo Amorim"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felipe-Amorim-Dev/CAD-Viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Felipe-Amorim-Dev/CAD-Viewer/issues"
+  },
+  "homepage": "https://github.com/Felipe-Amorim-Dev/CAD-Viewer#readme",
+  "main": "./dist/cad-viewer.umd.cjs",
+  "module": "./dist/cad-viewer.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/cad-viewer.js",
+      "require": "./dist/cad-viewer.umd.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": true,
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build",
+    "pack:check": "npm pack --dry-run"
+  },
+  "keywords": [
+    "cad",
+    "cad-viewer",
+    "threejs",
+    "three-js",
+    "web-component",
+    "3d",
+    "3d-viewer",
+    "gltf",
+    "glb",
+    "stl",
+    "obj",
+    "ply"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.185.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0",
+    "vite-plugin-dts": "^5.0.3"
+  }
+}
