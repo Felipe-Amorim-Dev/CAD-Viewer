@@ -17,13 +17,16 @@
   "homepage": "https://github.com/Felipe-Amorim-Dev/CAD-Viewer#readme",
   "main": "./dist/cad-viewer.umd.cjs",
   "module": "./dist/cad-viewer.js",
+  "browser": "./dist/cad-viewer.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/cad-viewer.js",
-      "require": "./dist/cad-viewer.umd.cjs"
-    }
+      "require": "./dist/cad-viewer.umd.cjs",
+      "default": "./dist/cad-viewer.js"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
@@ -31,13 +34,19 @@
     "LICENSE"
   ],
   "sideEffects": true,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc --noEmit",
     "build": "npm run typecheck && vite build",
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
-    "pack:check": "npm pack --dry-run"
+    "pack:check": "npm pack --dry-run",
+    "publish:npm": "npm publish --access public --registry=https://registry.npmjs.org/",
+    "publish:github": "npm publish --registry=https://npm.pkg.github.com/"
   },
   "keywords": [
     "cad",
@@ -53,13 +62,11 @@
     "obj",
     "ply"
   ],
-  "engines": {
-    "node": ">=20"
-  },
   "dependencies": {
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@types/node": "^24.0.0",
     "@types/three": "^0.185.1",
     "typescript": "~6.0.2",
     "vite": "^8.2.0",
