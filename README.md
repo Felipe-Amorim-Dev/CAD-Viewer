@@ -1,10 +1,10 @@
 <h1 align="center">🧩 CAD Viewer</h1>
 
-<p align="center"><em>Web Component para visualizar e manipular modelos 3D no navegador.</em></p>
+<p align="center"><em>Visualizador de modelos CAD 3D como Web Component.</em></p>
 
 <p align="center">🇧🇷 Português | 🇺🇸 <a href="README.en.md">English</a></p>
 
-<p align="center"><img src="https://img.shields.io/badge/licen%C3%A7a-MIT-006bed?style=flat-square" alt="MIT" /> <img src="https://img.shields.io/github/last-commit/Felipe-Amorim-Dev/CAD-Viewer?style=flat-square&color=006bed" alt="Last commit" /></p>
+<p align="center"><img src="https://img.shields.io/badge/license-MIT-006bed?style=flat-square" alt="MIT" /> <img src="https://img.shields.io/github/last-commit/Felipe-Amorim-Dev/CAD-Viewer?style=flat-square&color=006bed" alt="Last commit" /></p>
 
 <p align="center"><a href="#sobre">Sobre</a> • <a href="#tecnologias">Tecnologias</a> • <a href="#como-rodar">Como rodar</a> • <a href="#licenca">Licença</a> • <a href="#autor">Autor</a></p>
 
@@ -13,19 +13,19 @@
 <a id="sobre"></a>
 ## 📖 Sobre
 
-Biblioteca TypeScript distribuível via npm para integrar um visualizador 3D em aplicações web. Utiliza Three.js e suporta modelos GLB, glTF, STL, OBJ e PLY. Os arquivos podem ser carregados por URL ou diretamente do dispositivo.
+Plugin TypeScript que utiliza Three.js para exibir modelos GLB, glTF, STL, OBJ e PLY no navegador. Oferece rotação, zoom, movimento da câmera, carregamento de arquivos locais e por URL.
 
 ## ✨ Funcionalidades
 
-- Importação de modelos locais ou por URL
-- Orbitar, ampliar e mover a câmera
-- Rotação e posicionamento dos modelos
-- Exibição de grade e eixos
+- Carregamento local e remoto de modelos
+- Câmera com rotação, zoom e pan
+- Visualização de grade e eixos
 - Eventos de carregamento e erro
 
+<a id="tecnologias"></a>
 ## 🛠️ Tecnologias
 
-![TypeScript 6](https://img.shields.io/badge/TypeScript_6-006bed?style=for-the-badge) ![Three.js 0.185](https://img.shields.io/badge/Three.js_0.185-006bed?style=for-the-badge) ![Vite 8](https://img.shields.io/badge/Vite_8-006bed?style=for-the-badge) ![Web Components](https://img.shields.io/badge/Web_Components-006bed?style=for-the-badge) ![npm](https://img.shields.io/badge/npm-006bed?style=for-the-badge)
+![TypeScript 6](https://img.shields.io/badge/TypeScript_6-006bed?style=for-the-badge) ![Three.js 0.185](https://img.shields.io/badge/Three.js_0.185-006bed?style=for-the-badge) ![Vite 8](https://img.shields.io/badge/Vite_8-006bed?style=for-the-badge) ![Web Components](https://img.shields.io/badge/Web_Components-006bed?style=for-the-badge)
 
 ## 📦 Pré-requisitos
 
@@ -42,9 +42,7 @@ npm run build
 npm run dev
 ```
 
-http://localhost:5173
-
-## 📦 Usando a biblioteca
+## 📦 Utilização da biblioteca
 
 ```bash
 npm install @felipe-amorim-dev/cad-viewer
