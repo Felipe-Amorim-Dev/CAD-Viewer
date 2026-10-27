@@ -642,10 +642,10 @@ Nome do pacote:
 @felipe-amorim-dev/cad-viewer
 ```
 
-Versão inicial:
+Versão indicada no `package.json`:
 
 ```text
-0.1.0
+0.1.1
 ```
 
 ## 🤝 Contribuição
@@ -675,6 +675,8 @@ git push origin feature/minha-funcionalidade
 ```
 
 6. Abra um Pull Request.
+
+[![Compilação e verificação de tipos](https://github.com/Felipe-Amorim-Dev/CAD-Viewer/actions/workflows/ci.yml/badge.svg)](https://github.com/Felipe-Amorim-Dev/CAD-Viewer/actions/workflows/ci.yml)
 
 ## 📄 Licença
 
